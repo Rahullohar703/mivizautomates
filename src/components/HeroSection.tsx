@@ -83,7 +83,7 @@ const HeroSection = () => (
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.5, ease }}
-          className="mt-16 grid grid-cols-3 gap-5 max-w-xl mx-auto"
+          className="mt-16 grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-5 max-w-xl mx-auto"
         >
           {[
             { stat: "3×", label: "More qualified leads" },
@@ -92,14 +92,14 @@ const HeroSection = () => (
           ].map((item, i) => (
             <motion.div
               key={item.stat}
-              className="glass-card !p-5 text-center"
+              className="glass-card !p-4 sm:!p-5 text-center"
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.6 + i * 0.1, ease }}
               whileHover={{ y: -4, transition: { duration: 0.25 } }}
             >
-              <div className="text-xl md:text-2xl font-bold text-gradient mb-1">{item.stat}</div>
-              <div className="text-xs text-muted-foreground font-mono">{item.label}</div>
+              <div className="text-lg sm:text-xl md:text-2xl font-bold text-gradient mb-1">{item.stat}</div>
+              <div className="text-[11px] sm:text-xs text-muted-foreground font-mono">{item.label}</div>
             </motion.div>
           ))}
         </motion.div>

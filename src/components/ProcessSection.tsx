@@ -39,7 +39,7 @@ const ProcessSection = () => (
             transition={{ duration: 1, delay: 0.3, ease }}
           />
         </div>
-        <div className="grid md:grid-cols-4 gap-8">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
           {steps.map((step, i) => (
             <motion.div
               key={step.num}
