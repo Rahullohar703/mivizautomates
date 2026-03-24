@@ -32,8 +32,8 @@ const AudienceSection = () => (
       <motion.div
         initial={{ opacity: 0, y: 12 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.4, ease }}
+        viewport={{ once: true, margin: "-50px" }}
+        transition={{ duration: 0.5, ease }}
         className="max-w-3xl mx-auto text-center mb-16"
       >
         <p className="text-mono-label mb-4">Who This Is For</p>
@@ -46,15 +46,19 @@ const AudienceSection = () => (
         {audiences.map((a, i) => (
           <motion.div
             key={a.title}
-            initial={{ opacity: 0, y: 20, scale: 0.95 }}
+            initial={{ opacity: 0, y: 20, scale: 0.96 }}
             whileInView={{ opacity: 1, y: 0, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: i * 0.08, ease }}
+            viewport={{ once: true, margin: "-30px" }}
+            transition={{ duration: 0.45, delay: i * 0.08, ease }}
+            whileHover={{ y: -6, scale: 1.02, transition: { duration: 0.25 } }}
             className="glow-card group"
           >
-            <div className="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
+            <motion.div
+              className="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors"
+              whileHover={{ rotate: 5, scale: 1.1, transition: { duration: 0.2 } }}
+            >
               <a.icon className="w-6 h-6 text-primary" />
-            </div>
+            </motion.div>
             <h3 className="heading-card mb-2">{a.title}</h3>
             <p className="text-body-sm">{a.desc}</p>
           </motion.div>
