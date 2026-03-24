@@ -98,8 +98,8 @@ const HeroSection = () => (
               transition={{ duration: 0.5, delay: 0.6 + i * 0.1, ease }}
               whileHover={{ y: -4, transition: { duration: 0.25 } }}
             >
-              <div className="text-xl md:text-2xl font-bold text-gradient mb-1">{item.stat}</div>
-              <div className="text-xs text-muted-foreground font-mono">{item.label}</div>
+              <div className="text-lg sm:text-xl md:text-2xl font-bold text-gradient mb-1">{item.stat}</div>
+              <div className="text-[11px] sm:text-xs text-muted-foreground font-mono">{item.label}</div>
             </motion.div>
           ))}
         </motion.div>
