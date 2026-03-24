@@ -11,7 +11,7 @@ const ease = [0.2, 0, 0, 1] as const;
 const faqs = [
   {
     q: "What types of businesses do you work with?",
-    a: "We work exclusively with construction and design industry businesses — architects, interior designers, builders, contractors, construction firms, and design & build firms. Our systems are purpose-built for how these businesses operate and win projects.",
+    a: "We work with any growth-focused business — service companies, e-commerce brands, SaaS startups, agencies, and more. Our systems are adaptable to any industry because the fundamentals of lead generation and automation are universal.",
   },
   {
     q: "How long does it take to see results?",
@@ -19,15 +19,15 @@ const faqs = [
   },
   {
     q: "Do I need to create content myself?",
-    a: "No. Our Content / Ad Engine handles content creation, distribution, and amplification for you using AI-powered workflows. We set up the system, and it runs with minimal input from your side.",
+    a: "No. Our Content & Ad Engine handles content creation, distribution, and amplification using AI-powered workflows. We set up the system, and it runs with minimal input from your side.",
   },
   {
     q: "What's included in the strategy call?",
-    a: "The strategy call is a free 30-minute session where we audit your current lead generation process, identify gaps, and map out a custom growth system tailored to your firm. There's no obligation — it's a genuine strategy session.",
+    a: "The strategy call is a free 30-minute session where we audit your current lead generation process, identify gaps, and map out a custom growth system tailored to your business. No obligation — it's a genuine strategy session.",
   },
   {
     q: "Do you handle CRM and follow-up automation?",
-    a: "Yes. Our Lead Acquisition System includes full CRM setup, WhatsApp automation, email follow-ups, and booking automation. Every lead is captured, nurtured, and moved through your pipeline without manual work.",
+    a: "Yes. Our Lead Acquisition System includes full CRM setup, email automation, follow-up sequences, and booking automation. Every lead is captured, nurtured, and moved through your pipeline automatically.",
   },
   {
     q: "What if I already have a website and social media?",
@@ -46,7 +46,9 @@ const FAQSection = () => (
         className="max-w-3xl mx-auto text-center mb-16"
       >
         <p className="text-mono-label mb-4">FAQ</p>
-        <h2 className="heading-section">Frequently asked questions.</h2>
+        <h2 className="heading-section">
+          Frequently asked <span className="text-gradient">questions.</span>
+        </h2>
       </motion.div>
 
       <motion.div
@@ -63,7 +65,7 @@ const FAQSection = () => (
               value={`faq-${i}`}
               className="glass-card !p-0 border-none rounded-2xl overflow-hidden"
             >
-              <AccordionTrigger className="px-6 py-5 text-left text-sm font-semibold text-foreground hover:no-underline hover:bg-primary/[0.02] transition-colors">
+              <AccordionTrigger className="px-6 py-5 text-left text-sm font-semibold text-foreground hover:no-underline hover:bg-primary/[0.03] transition-colors">
                 {faq.q}
               </AccordionTrigger>
               <AccordionContent className="px-6 pb-5 text-sm text-muted-foreground leading-relaxed">
