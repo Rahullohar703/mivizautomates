@@ -83,7 +83,7 @@ const HeroSection = () => (
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.5, ease }}
-          className="mt-16 grid grid-cols-3 gap-5 max-w-xl mx-auto"
+          className="mt-16 grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-5 max-w-xl mx-auto"
         >
           {[
             { stat: "3×", label: "More qualified leads" },
