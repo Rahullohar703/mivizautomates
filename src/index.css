@@ -78,13 +78,13 @@
 
 @layer components {
   .heading-display {
-    @apply text-5xl sm:text-6xl md:text-8xl font-bold tracking-tighter;
+    @apply text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tighter;
     color: hsl(var(--foreground));
-    line-height: 1.0;
+    line-height: 1.05;
     letter-spacing: -0.04em;
   }
   .heading-section {
-    @apply text-3xl sm:text-4xl md:text-6xl font-bold tracking-tight;
+    @apply text-2xl sm:text-3xl md:text-5xl font-bold tracking-tight;
     color: hsl(var(--foreground));
     line-height: 1.1;
     letter-spacing: -0.03em;

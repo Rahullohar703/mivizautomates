@@ -83,8 +83,8 @@ const BreakdownSection = () => (
       <motion.div
         initial={{ opacity: 0, y: 12 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.4, ease }}
+        viewport={{ once: true, margin: "-50px" }}
+        transition={{ duration: 0.5, ease }}
         className="max-w-3xl mx-auto text-center mb-16"
       >
         <p className="text-mono-label mb-4">System Breakdown</p>
@@ -97,27 +97,38 @@ const BreakdownSection = () => (
         {systems.map((sys, i) => (
           <motion.div
             key={sys.id}
-            initial={{ opacity: 0, y: 20, scale: 0.95 }}
+            initial={{ opacity: 0, y: 20, scale: 0.96 }}
             whileInView={{ opacity: 1, y: 0, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: i * 0.08, ease }}
+            viewport={{ once: true, margin: "-30px" }}
+            transition={{ duration: 0.45, delay: i * 0.08, ease }}
+            whileHover={{ y: -6, scale: 1.02, transition: { duration: 0.25 } }}
             className={sys.span}
           >
             <BentoCard className="flex flex-col h-full">
               <div className="flex items-center gap-3 mb-4">
-                <div className="w-11 h-11 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
+                <motion.div
+                  className="w-11 h-11 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors"
+                  whileHover={{ rotate: 5, scale: 1.1, transition: { duration: 0.2 } }}
+                >
                   <sys.icon className="w-5 h-5 text-primary" />
-                </div>
+                </motion.div>
                 <span className="text-mono-label !text-primary">{sys.id}</span>
               </div>
               <h3 className="heading-card mb-2">{sys.title}</h3>
               <p className="text-body-sm mb-6">{sys.purpose}</p>
               <ul className="space-y-2.5 mt-auto">
-                {sys.specs.map((spec) => (
-                  <li key={spec} className="flex items-center gap-2.5 text-sm text-muted-foreground">
+                {sys.specs.map((spec, si) => (
+                  <motion.li
+                    key={spec}
+                    className="flex items-center gap-2.5 text-sm text-muted-foreground"
+                    initial={{ opacity: 0, x: -8 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.3, delay: 0.2 + si * 0.06, ease }}
+                  >
                     <div className="w-1.5 h-1.5 rounded-full bg-primary/60 shrink-0" />
                     {spec}
-                  </li>
+                  </motion.li>
                 ))}
               </ul>
             </BentoCard>

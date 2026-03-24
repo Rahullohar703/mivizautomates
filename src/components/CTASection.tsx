@@ -6,13 +6,13 @@ const ease = [0.2, 0, 0, 1] as const;
 
 const FloatingDots = () => {
   const dots = useMemo(() =>
-    Array.from({ length: 40 }, (_, i) => ({
+    Array.from({ length: 18 }, (_, i) => ({
       id: i,
       x: Math.random() * 100,
       y: Math.random() * 100,
       size: Math.random() * 3 + 1,
-      duration: Math.random() * 4 + 4,
-      delay: Math.random() * 2,
+      duration: Math.random() * 5 + 5,
+      delay: Math.random() * 3,
     })), []);
 
   return (
@@ -28,8 +28,8 @@ const FloatingDots = () => {
             height: dot.size,
           }}
           animate={{
-            y: [-20, 20, -20],
-            opacity: [0.05, 0.3, 0.05],
+            y: [-15, 15, -15],
+            opacity: [0.05, 0.25, 0.05],
           }}
           transition={{
             duration: dot.duration,
@@ -45,8 +45,7 @@ const FloatingDots = () => {
 
 const CTASection = () => (
   <section id="cta" className="section-spacing relative overflow-hidden">
-    {/* Aurora effect */}
-    <div className="aurora-bg opacity-50" />
+    <div className="aurora-bg opacity-40" />
     <div className="absolute inset-0 bg-gradient-to-b from-background via-background/80 to-background" />
     <FloatingDots />
 
@@ -55,10 +54,10 @@ const CTASection = () => (
         initial={{ opacity: 0, y: 12 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        transition={{ duration: 0.4, ease }}
+        transition={{ duration: 0.5, ease }}
         className="max-w-3xl mx-auto text-center"
       >
-        <h2 className="heading-display mb-6">
+        <h2 className="heading-section mb-6">
           Stop relying on referrals.
           <br />
           <span className="text-gradient">Install a growth system.</span>
@@ -66,15 +65,18 @@ const CTASection = () => (
         <p className="text-body max-w-[500px] mx-auto mb-10">
           Build a system that consistently generates and converts leads — on autopilot.
         </p>
-        <a
+        <motion.a
           href="https://calendly.com/mivizhub/30min"
           target="_blank"
           rel="noopener noreferrer"
           className="btn-primary text-lg !px-10 !py-5 group"
+          whileHover={{ scale: 1.03, y: -2 }}
+          whileTap={{ scale: 0.98 }}
+          transition={{ type: "spring", stiffness: 400, damping: 20 }}
         >
           Book a strategy call
           <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-        </a>
+        </motion.a>
       </motion.div>
     </div>
   </section>

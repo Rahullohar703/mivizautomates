@@ -16,8 +16,8 @@ const BenefitsSection = () => (
       <motion.div
         initial={{ opacity: 0, y: 12 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.4, ease }}
+        viewport={{ once: true, margin: "-50px" }}
+        transition={{ duration: 0.5, ease }}
         className="max-w-3xl mx-auto text-center mb-16"
       >
         <p className="text-mono-label mb-4">Results</p>
@@ -30,14 +30,23 @@ const BenefitsSection = () => (
         {benefits.map((b, i) => (
           <motion.div
             key={b.label}
-            initial={{ opacity: 0, y: 20, scale: 0.95 }}
+            initial={{ opacity: 0, y: 20, scale: 0.96 }}
             whileInView={{ opacity: 1, y: 0, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: i * 0.08, ease }}
+            viewport={{ once: true, margin: "-30px" }}
+            transition={{ duration: 0.45, delay: i * 0.08, ease }}
+            whileHover={{ y: -6, scale: 1.02, transition: { duration: 0.25 } }}
             className="glow-card group"
           >
             <div className="flex items-center gap-2 mb-4">
-              <span className="text-3xl md:text-4xl font-bold tracking-tighter text-gradient">{b.stat}</span>
+              <motion.span
+                className="text-3xl md:text-4xl font-bold tracking-tighter text-gradient"
+                initial={{ opacity: 0, scale: 0.8 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: 0.1 + i * 0.08, type: "spring", stiffness: 200 }}
+              >
+                {b.stat}
+              </motion.span>
               <span className="text-xs text-muted-foreground font-mono">{b.statLabel}</span>
             </div>
             <div className="flex items-center gap-3">

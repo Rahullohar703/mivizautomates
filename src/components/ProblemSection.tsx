@@ -21,8 +21,8 @@ const ProblemSection = () => (
       <motion.div
         initial={{ opacity: 0, y: 12 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.4, ease }}
+        viewport={{ once: true, margin: "-50px" }}
+        transition={{ duration: 0.5, ease }}
         className="max-w-3xl mx-auto text-center mb-16"
       >
         <p className="text-mono-label mb-4">The Problem</p>
@@ -37,41 +37,57 @@ const ProblemSection = () => (
 
       <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
         <motion.div
-          initial={{ opacity: 0, y: 12, scale: 0.97 }}
-          whileInView={{ opacity: 1, y: 0, scale: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.05, ease }}
+          initial={{ opacity: 0, x: -20 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.5, delay: 0.1, ease }}
+          whileHover={{ y: -4, transition: { duration: 0.25 } }}
           className="glass-card"
         >
           <p className="text-mono-label mb-6">Most businesses rely on</p>
           <ul className="space-y-4">
-            {relies.map((r) => (
-              <li key={r.label} className="flex items-center gap-3 text-body-sm">
+            {relies.map((r, i) => (
+              <motion.li
+                key={r.label}
+                className="flex items-center gap-3 text-body-sm"
+                initial={{ opacity: 0, x: -10 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.3, delay: 0.2 + i * 0.08, ease }}
+              >
                 <span className="w-9 h-9 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
                   <r.icon className="w-4 h-4 text-muted-foreground" />
                 </span>
                 {r.label}
-              </li>
+              </motion.li>
             ))}
           </ul>
         </motion.div>
 
         <motion.div
-          initial={{ opacity: 0, y: 12, scale: 0.97 }}
-          whileInView={{ opacity: 1, y: 0, scale: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.1, ease }}
+          initial={{ opacity: 0, x: 20 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.5, delay: 0.15, ease }}
+          whileHover={{ y: -4, transition: { duration: 0.25 } }}
           className="glass-card"
         >
           <p className="text-mono-label mb-6">Which leads to</p>
           <ul className="space-y-4">
-            {leads.map((l) => (
-              <li key={l.label} className="flex items-center gap-3 text-body-sm">
+            {leads.map((l, i) => (
+              <motion.li
+                key={l.label}
+                className="flex items-center gap-3 text-body-sm"
+                initial={{ opacity: 0, x: -10 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.3, delay: 0.25 + i * 0.08, ease }}
+              >
                 <span className="w-9 h-9 rounded-xl bg-destructive/10 flex items-center justify-center shrink-0">
                   <l.icon className="w-4 h-4 text-destructive" />
                 </span>
                 {l.label}
-              </li>
+              </motion.li>
             ))}
           </ul>
         </motion.div>
