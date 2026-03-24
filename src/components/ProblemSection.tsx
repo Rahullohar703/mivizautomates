@@ -10,15 +10,13 @@ const relies = [
 ];
 
 const leads = [
-  { icon: X, label: "Lost leads", color: "text-destructive" },
-  { icon: TrendingDown, label: "Slow growth", color: "text-destructive" },
-  { icon: Zap, label: "Chaotic workflows", color: "text-destructive" },
+  { icon: X, label: "Lost leads" },
+  { icon: TrendingDown, label: "Slow growth" },
+  { icon: Zap, label: "Chaotic workflows" },
 ];
 
 const ProblemSection = () => (
   <section className="section-spacing relative overflow-hidden">
-    {/* Subtle background */}
-    <div className="absolute inset-0 bg-gradient-to-b from-muted/40 via-muted/60 to-muted/40 pointer-events-none" />
     <div className="section-container relative">
       <motion.div
         initial={{ opacity: 0, y: 12 }}
@@ -29,10 +27,10 @@ const ProblemSection = () => (
       >
         <p className="text-mono-label mb-4">The Problem</p>
         <h2 className="heading-section mb-6">
-          Most construction businesses grow unpredictably.
+          Most businesses grow <span className="text-gradient">unpredictably.</span>
         </h2>
         <p className="text-body">
-          Growth is left to chance. Projects come from word of mouth, marketing
+          Growth is left to chance. Customers come from word of mouth, marketing
           is inconsistent, and follow-ups are manual.
         </p>
       </motion.div>
@@ -45,11 +43,11 @@ const ProblemSection = () => (
           transition={{ duration: 0.5, delay: 0.05, ease }}
           className="glass-card"
         >
-          <p className="text-mono-label mb-6">Most firms rely on</p>
+          <p className="text-mono-label mb-6">Most businesses rely on</p>
           <ul className="space-y-4">
             {relies.map((r) => (
               <li key={r.label} className="flex items-center gap-3 text-body-sm">
-                <span className="w-9 h-9 rounded-xl bg-zinc-100 flex items-center justify-center shrink-0">
+                <span className="w-9 h-9 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
                   <r.icon className="w-4 h-4 text-muted-foreground" />
                 </span>
                 {r.label}
@@ -69,7 +67,7 @@ const ProblemSection = () => (
           <ul className="space-y-4">
             {leads.map((l) => (
               <li key={l.label} className="flex items-center gap-3 text-body-sm">
-                <span className="w-9 h-9 rounded-xl bg-destructive/5 flex items-center justify-center shrink-0">
+                <span className="w-9 h-9 rounded-xl bg-destructive/10 flex items-center justify-center shrink-0">
                   <l.icon className="w-4 h-4 text-destructive" />
                 </span>
                 {l.label}

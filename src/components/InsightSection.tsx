@@ -29,7 +29,6 @@ const AnimatedCounter = ({ target }: { target: number }) => {
 
 const InsightSection = () => (
   <section className="section-spacing relative overflow-hidden">
-    {/* Gradient divider bg */}
     <div className="absolute inset-0 bg-gradient-to-b from-background via-primary/[0.02] to-background pointer-events-none" />
     <div className="section-container relative">
       <motion.div
@@ -43,7 +42,7 @@ const InsightSection = () => (
         <h2 className="heading-section mb-6">
           Growth doesn't come from marketing.
           <br />
-          It comes from systems.
+          It comes from <span className="text-gradient">systems.</span>
         </h2>
         <p className="text-body max-w-[540px] mx-auto">
           Businesses that grow consistently don't rely on random referrals or
@@ -58,9 +57,8 @@ const InsightSection = () => (
         transition={{ duration: 0.4, delay: 0.1, ease }}
         className="mt-16 max-w-lg mx-auto"
       >
-        {/* Animated stat */}
         <div className="text-center mb-8">
-          <span className="text-5xl md:text-6xl font-semibold tracking-tighter text-primary">
+          <span className="text-5xl md:text-7xl font-bold tracking-tighter text-gradient">
             <AnimatedCounter target={85} />%
           </span>
           <p className="text-sm text-muted-foreground font-mono mt-2">
@@ -72,21 +70,12 @@ const InsightSection = () => (
           <span>Referrals</span>
           <span className="text-primary font-medium">Systems</span>
         </div>
-        <div className="mt-3 h-3 rounded-full bg-zinc-100 overflow-hidden relative">
-          {/* Glow behind bar */}
-          <motion.div
-            className="absolute inset-0 rounded-full"
-            style={{ background: "linear-gradient(90deg, transparent 60%, hsl(221 83% 53% / 0.2) 100%)" }}
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 1, delay: 0.5 }}
-          />
+        <div className="mt-3 h-3 rounded-full bg-secondary overflow-hidden relative">
           <motion.div
             className="h-full rounded-full relative"
             style={{
-              background: "linear-gradient(90deg, hsl(221 83% 53%), hsl(221 83% 63%))",
-              boxShadow: "0 0 20px hsl(221 83% 53% / 0.4)",
+              background: "linear-gradient(90deg, hsl(var(--primary)), hsl(var(--cyan)))",
+              boxShadow: "0 0 20px hsl(var(--primary) / 0.4)",
             }}
             initial={{ width: "0%" }}
             whileInView={{ width: "85%" }}

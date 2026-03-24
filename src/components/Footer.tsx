@@ -1,8 +1,7 @@
 import logo from "@/assets/logo.png";
 
 const Footer = () => (
-  <footer className="relative border-t border-primary/5 py-12">
-    {/* Top gradient line */}
+  <footer className="relative border-t border-foreground/5 py-12">
     <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent" />
     <div className="section-container flex flex-col md:flex-row items-center justify-between gap-6">
       <div className="flex items-center gap-2">
