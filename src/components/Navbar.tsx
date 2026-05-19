@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import logo from "@/assets/logo.png";
 
 const Navbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -10,7 +9,6 @@ const Navbar = () => {
       <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent" />
       <div className="section-container flex items-center justify-between h-16">
         <a href="#" className="flex items-center gap-2">
-          <img src={logo} alt="Mivizhub" className="h-12 w-12 rounded-lg" />
           <span className="text-xl font-semibold tracking-tight text-foreground">Mivizhub</span>
         </a>
         <div className="hidden md:flex items-center gap-8">
