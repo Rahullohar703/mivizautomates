@@ -3,13 +3,18 @@ import { ArrowRight } from "lucide-react";
 
 const ease = [0.2, 0, 0, 1] as const;
 
-const FloatingOrb = ({ className, delay = 0 }: { className: string; delay?: number }) => (
+const FloatingOrb = ({ className, delay = 0, colorGradient }: { className: string; delay?: number; colorGradient: string }) => (
   <motion.div
-    className={`absolute rounded-full pointer-events-none blur-3xl ${className}`}
+    className={`absolute rounded-full pointer-events-none ${className}`}
+    style={{ 
+      willChange: "transform", 
+      transform: "translateZ(0)",
+      background: colorGradient
+    }}
     animate={{
       y: [-20, 20, -20],
       x: [-15, 15, -15],
-      scale: [1, 1.08, 1],
+      scale: [1, 1.05, 1],
     }}
     transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay }}
   />
@@ -17,12 +22,11 @@ const FloatingOrb = ({ className, delay = 0 }: { className: string; delay?: numb
 
 const HeroSection = () => (
   <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-    <div className="aurora-bg" />
     <div className="absolute inset-0 dot-grid-bg opacity-20 pointer-events-none" />
 
-    <FloatingOrb className="top-1/4 -left-20 w-[400px] h-[400px] bg-primary/15" delay={0} />
-    <FloatingOrb className="bottom-1/4 -right-20 w-[500px] h-[500px] bg-cyan/8" delay={2} />
-    <FloatingOrb className="top-1/2 left-1/2 -translate-x-1/2 w-[350px] h-[350px] bg-violet-glow/8" delay={4} />
+    <FloatingOrb className="top-1/4 -left-20 w-[400px] h-[400px]" colorGradient="radial-gradient(circle, hsl(var(--primary) / 0.15) 0%, transparent 70%)" delay={0} />
+    <FloatingOrb className="bottom-1/4 -right-20 w-[500px] h-[500px]" colorGradient="radial-gradient(circle, hsl(var(--cyan) / 0.08) 0%, transparent 70%)" delay={2} />
+    <FloatingOrb className="top-1/2 left-1/2 -translate-x-1/2 w-[350px] h-[350px]" colorGradient="radial-gradient(circle, hsl(var(--violet-glow) / 0.08) 0%, transparent 70%)" delay={4} />
 
     <div className="absolute inset-0 bg-gradient-to-b from-background via-transparent to-background pointer-events-none" />
 
@@ -30,8 +34,8 @@ const HeroSection = () => (
       <div className="max-w-4xl mx-auto text-center">
         {/* Badge */}
         <motion.div
-          initial={{ opacity: 0, y: 16, filter: "blur(8px)" }}
-          animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease }}
           className="mb-6 inline-flex"
         >
@@ -43,8 +47,8 @@ const HeroSection = () => (
 
         {/* Headline */}
         <motion.h1
-          initial={{ opacity: 0, y: 24, filter: "blur(8px)" }}
-          animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.1, ease }}
           className="heading-display mb-6"
         >
@@ -55,8 +59,8 @@ const HeroSection = () => (
 
         {/* Subtext */}
         <motion.p
-          initial={{ opacity: 0, y: 16, filter: "blur(6px)" }}
-          animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2, ease }}
           className="text-body max-w-[560px] mx-auto mb-10"
         >

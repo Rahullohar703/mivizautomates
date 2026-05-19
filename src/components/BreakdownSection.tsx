@@ -15,7 +15,7 @@ const systems = [
       "Multi-channel distribution",
       "Paid & organic amplification",
     ],
-    span: "md:col-span-2 md:row-span-2",
+    span: "md:col-span-2",
   },
   {
     id: "Engine_02",
@@ -116,7 +116,7 @@ const BreakdownSection = () => (
               </div>
               <h3 className="heading-card mb-2">{sys.title}</h3>
               <p className="text-body-sm mb-6">{sys.purpose}</p>
-              <ul className="space-y-2.5 mt-auto">
+              <ul className="space-y-2.5 mt-8">
                 {sys.specs.map((spec, si) => (
                   <motion.li
                     key={spec}

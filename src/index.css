@@ -114,10 +114,12 @@
 
   /* Gradient text */
   .text-gradient {
-    background: linear-gradient(135deg, hsl(var(--violet)) 0%, hsl(var(--cyan)) 50%, hsl(var(--violet-glow)) 100%);
+    background: linear-gradient(to right, hsl(var(--violet)), hsl(var(--cyan)), hsl(var(--violet-glow)), hsl(var(--violet)));
+    background-size: 200% auto;
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
+    animation: gradient-pan 4s linear infinite;
   }
 
   .text-gradient-subtle {
@@ -149,6 +151,8 @@
     border: 1px solid hsl(var(--foreground) / 0.06);
     box-shadow: var(--shadow-sm);
     transition: all 0.4s cubic-bezier(0.2, 0, 0, 1);
+    transform: translateZ(0);
+    will-change: transform, box-shadow, border-color;
   }
   .glass-card:hover {
     box-shadow: var(--shadow-md);
@@ -223,6 +227,7 @@
     position: absolute;
     inset: 0;
     overflow: hidden;
+    transform: translateZ(0);
   }
   .aurora-bg::before {
     content: '';
@@ -236,7 +241,8 @@
       hsl(var(--violet) / 0.15) 360deg
     );
     animation: aurora-rotate 20s linear infinite;
-    filter: blur(80px);
+    will-change: transform;
+    transform: translateZ(0);
   }
 
   /* Buttons */
@@ -316,6 +322,11 @@
 @keyframes shimmer {
   0%, 100% { background-position: 200% center; }
   50% { background-position: 0% center; }
+}
+
+@keyframes gradient-pan {
+  0% { background-position: 0% center; }
+  100% { background-position: -200% center; }
 }
 
 @keyframes badge-shine {
